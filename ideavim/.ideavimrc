@@ -75,6 +75,14 @@ Plug 'preservim/nerdtree'
 " ==  No Leader Keymaps == "
 " ======================== "
 " nmap gm <action>(MethodUp) -> use idea keymap: <Alt+↓>
+" Move to next tab "
+nmap L <action>(NextTab)
+" Move to previous tab "
+nmap H <action>(PreviousTab)
+" Move cursor to right windows "
+nmap <c-l> <c-w>l
+" Move cursor to left windows "
+nmap <c-h> <c-w>h
 
 " ======================== "
 " ==== Leader keymaps ==== "
@@ -83,6 +91,11 @@ let mapleader=" "
 " 👻Which-Key
 set which-key
 set notimeout
+
+" ⭐️ File Explorer "
+let g:WhichKeyDesc_ToggleExplorerOrExtract = "<leader>e ToggleExplorer"
+nmap <leader>e :NERDTreeToggle<CR>
+
 
 " 📄File "
 let g:WhichKeyDesc_File = "<leader>f File"
@@ -108,14 +121,13 @@ nmap <leader>wc <c-w>c
 " Split and move right "
 let g:WhichKeyDesc_Windows_SplitAndMoveRight = "<leader>w\| SplitAndMoveRight"
 nmap <leader>w\| <action>(MoveTabRight)
-" Move tab to right windows"
-" Move tab to left windows"
-let g:WhichKeyDesc_Windows_MoveRight = "<leader>wl MoveRight"
-nmap <leader>wl <action>(MoveEditorToOppositeTabGroup)
+" let g:WhichKeyDesc_Windows_MoveRight = "<leader>wl MoveRight"
+" nmap <leader>wl <action>(MoveEditorToOppositeTabGroup)
 
-" Move cursor to right window"
-" Move cursor to left window"
-" = use idea keymap: <ctl+l>"
+" Move cursor to right window "
+" Move cursor to left window "
+" = use idea keymap: <ctl+l> "
+
 
 " let g:WhichKeyDesc_Windows_maximize = "<leader>wo maximize"
 " nmap <leader>wo <action>(UnsplitAll) \| <action>(HideAllWindows)
