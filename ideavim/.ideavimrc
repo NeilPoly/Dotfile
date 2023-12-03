@@ -1,0 +1,191 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+"set scrolloff=5
+
+" Do incremental searching.
+"set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+"map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+"Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+"Plug 'tpope/vim-commentary'
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+
+" Base vim setting "
+set incsearch
+set smartcase
+set smartindent
+set scrolloff=5
+set number relativenumber
+" set keep-english-in-normal-and-restore-in-insert -> do not work
+set clipboard+=unnamed
+
+" ideavim plugins "
+""| Key     |  Description                                            |  Map Setting                   |
+""|---------|---------------------------------------------------------|--------------------------------|
+""| `o`     |  Open files, directories and bookmarks                  | `g:NERDTreeMapActivateNode`    |
+""| `go`    |  Open selected file, but leave cursor in the NERDTree   | `g:NERDTreeMapPreview`         |
+""| `t`     |  Open selected node/bookmark in a new tab               | `g:NERDTreeMapOpenInTab`       |
+""| `T`     |  Same as 't' but keep the focus on the current tab      | `g:NERDTreeMapOpenInTabSilent` |
+""| `i`     |  Open selected file in a split window                   | `g:NERDTreeMapOpenSplit`       |
+""| `gi`    |  Same as i, but leave the cursor on the NERDTree        | `g:NERDTreeMapPreviewSplit`    |
+""| `s`     |  Open selected file in a new vsplit                     | `g:NERDTreeMapOpenVSplit`      |
+""| `gs`    |  Same as s, but leave the cursor on the NERDTree        | `g:NERDTreeMapPreviewVSplit`   |
+""| `O`     |  Recursively open the selected directory                | `g:NERDTreeMapOpenRecursively` |
+""| `x`     |  Close the current nodes parent                         | `g:NERDTreeMapCloseDir`        |
+""| `X`     |  Recursively close all children of the current node     | `g:NERDTreeMapCloseChildren`   |
+""| `P`     |  Jump to the root node                                  | `g:NERDTreeMapJumpRoot`        |
+""| `p`     |  Jump to current nodes parent                           | `g:NERDTreeMapJumpParent`      |
+""| `K`     |  Jump up inside directories at the current tree depth   | `g:NERDTreeMapJumpFirstChild`  |
+""| `J`     |  Jump down inside directories at the current tree depth | `g:NERDTreeMapJumpLastChild`   |
+""| `<C-J>` |  Jump down to next sibling of the current directory     | `g:NERDTreeMapJumpNextSibling` |
+""| `<C-K>` |  Jump up to previous sibling of the current directory   | `g:NERDTreeMapJumpPrevSibling` |
+""| `r`     |  Recursively refresh the current directory              | `g:NERDTreeMapRefresh`         |
+""| `R`     |  Recursively refresh the current root                   | `g:NERDTreeMapRefreshRoot`     |
+""| `m`     |  Display the NERDTree menu                              | `g:NERDTreeMapMenu`            |
+""| `q`     |  Close the NERDTree window                              | `g:NERDTreeMapQuit`            |
+""| `A`     |  Zoom (maximize/minimize) the NERDTree window           | `g:NERDTreeMapToggleZoom`      |
+Plug 'preservim/nerdtree'
+
+
+" ======================== "
+" ==  No Leader Keymaps == "
+" ======================== "
+" nmap gm <action>(MethodUp) -> use idea keymap: <Alt+↓>
+
+" ======================== "
+" ==== Leader keymaps ==== "
+" ======================== "
+let mapleader=" "
+" 👻Which-Key
+set which-key
+set notimeout
+
+" 📄File "
+let g:WhichKeyDesc_File = "<leader>f File"
+" Find File "
+let g:WhichKeyDesc_File_FindFile = "<leader>ff FindFile"
+nmap <leader>ff <action>(GotoFile)
+" Find File Location "
+let g:WhichKeyDesc_File_FindFileLocation = "<leader>fl FindFileLocation"
+nmap <leader>fl <action>(SelectInProjectView)
+" Format File "
+let g:WhichKeyDesc_File_Format = "<leader>fm Format"
+nmap <leader>fm <action>(ReformatCode) \| <action>(OptimizeImports)
+" Show Structure Popup "
+let g:WhichKeyDesc_File_FileStructure = "<leader>fs ShowFileStructure"
+nmap <leader>fs <action>(FileStructurePopup)
+
+
+" 🪟Windows "
+let g:WhichKeyDesc_Windows = "<leader>w Windows"
+" Close window "
+let g:WhichKeyDesc_Windows_CloseActiveWindow = "<leader>wc CloseActiveWindow"
+nmap <leader>wc <c-w>c
+" Split and move right "
+let g:WhichKeyDesc_Windows_SplitAndMoveRight = "<leader>w\| SplitAndMoveRight"
+nmap <leader>w\| <action>(MoveTabRight)
+" Move tab to right windows"
+" Move tab to left windows"
+let g:WhichKeyDesc_Windows_MoveRight = "<leader>wl MoveRight"
+nmap <leader>wl <action>(MoveEditorToOppositeTabGroup)
+
+" Move cursor to right window"
+" Move cursor to left window"
+" = use idea keymap: <ctl+l>"
+
+" let g:WhichKeyDesc_Windows_maximize = "<leader>wo maximize"
+" nmap <leader>wo <action>(UnsplitAll) \| <action>(HideAllWindows)
+" let g:WhichKeyDesc_Windows_splitWindowVertically = "<leader>wl splitWindowVertically"
+" nmap <leader>wl <action>(Macro.SplitVertically)
+" let g:WhichKeyDesc_Windows_closeActiveWindow = "<leader>wc closeActiveWindow"
+" nmap <leader>wc <c-w>c
+
+
+" 🏃Short Cut "
+let g:WhichKeyDesc_InsertAfterBrackets = "<leader>( InsertAfterBrackets"
+nmap <leader>( f(a
+let g:WhichKeyDesc_InsertBeforeBrackets = "<leader>) InsertBeforeBrackets"
+nmap <leader>) f)i
+
+" j: add Semicolon and goto nextline⭐️
+" let g:WhichKeyDesc_InsertSemicolon = "<leader>j InsertSemicolon"
+" nmap <leader>j A;<ESC>o
+
+" l: lsp: Language server protocol (align with neovim)⭐️
+" let g:WhichKeyDesc_LSP = "<leader>l LSP"
+" let g:WhichKeyDesc_LSP_Rename = "<leader>lr Rename"
+" nmap <leader>lr <action>(RenameElement)
+
+
+" n: No ⭐️
+" let g:WhichKeyDesc_No_Highlight = "<leader>nl NoHighlight"
+" nmap <leader>nl :nohlsearch<CR>
+
+
+" s: Show ⭐️
+" let g:WhichKeyDesc_Show = "<leader>s Show"
+" let g:WhichKeyDesc_Show_FileStructure = "<leader>ss ShowFileStructure"
+" nmap <leader>ss <action>(FileStructurePopup)
+" let g:WhichKeyDesc_Show_Bookmarks = "<leader>sb ShowBookmarks"
+" nmap <leader>sb <action>(ShowBookmarks)
+" let g:WhichKeyDesc_Show_ParameterInfo = "<leader>sb ShowParameterInfo"
+" nmap <leader>sp <action>(ParameterInfo)
+
+" r: Run/Re ⭐️
+let g:WhichKeyDesc_RunOrRe = "<leader>r RunOrRe"
+let g:WhichKeyDesc_RunOrRe_ReRun = "<leader>rr ReRun"
+nmap <leader>rr <action>(Rerun)
+let g:WhichKeyDesc_RunOrRe_ReRunTests = "<leader>rt ReRunTests"
+nmap <leader>rt <action>(RerunTests)
+let g:WhichKeyDesc_RunOrRe_Rename = "<leader>rn Rename"
+map <leader>rn <action>(RenameElement)
+
+
+
+" z: zip(fold) ⭐️
+" let g:WhichKeyDesc_Zip = "<leader>z Zip"
+" let g:WhichKeyDesc_Zip_unZipAll = "<leader>zo unZipAll"
+" nmap <leader>zo <action>(ExpandAllRegions)
+" let g:WhichKeyDesc_Zip_ZipAll = "<leader>zc ZipAll"
+" nmap <leader>zc <action>(CollapseAllRegions)
+
+" c: Close ⭐️;
+let g:WhichKeyDesc_CloseBuffer = "<leader>c CloseBuffer"
+nmap <leader>c :q!<CR>
+
+" e: Toggle Explorer ⭐️
+" let g:WhichKeyDesc_ToggleExplorerOrExtract = "<leader>e ToggleExplorer"
+" nmap <leader>e <action>(ActivateProjectToolWindow)
+" e: Extract
+" extract method/function
+" vmap <leader>em <action>(ExtractMethod)
+" extract constant
+" vmap <leader>ec <action>(IntroduceConstant)
+" extract field
+" vmap <leader>ef <action>(IntroduceField)
+" extract variable
+" vmap <leader>ev <action>(IntroduceVariable)
