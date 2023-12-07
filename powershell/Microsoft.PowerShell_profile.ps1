@@ -1,5 +1,5 @@
 # Wake up oh-my-posh
-oh-my-posh init pwsh --config 'C:\Users\guxq2\AppData\Local\Programs\oh-my-posh\themes\remk.omp.json' | Invoke-Expression
+oh-my-posh init pwsh --config 'C:\Users\guxq2\AppData\Local\Programs\oh-my-posh\themes\aliens.omp.json' | Invoke-Expression
 
 # Use RSReadLine
 # Import-Module PSReadLine
