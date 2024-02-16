@@ -121,9 +121,163 @@ profiles:
     weight: -1
     group: 0d83f172-508c-4d86-96de-db43125265c3
     id: ssh:custom:UC2112:193ce8cb-8215-4e72-bc68-46b5df395f6c
+  - type: ssh
+    name: GIA-E-LA
+    icon: fas fa-desktop
+    options:
+      host: 80.251.208.251
+      port: 28104
+      algorithms:
+        hmac:
+          - hmac-sha1
+          - hmac-sha1-etm@openssh.com
+          - hmac-sha2-256
+          - hmac-sha2-256-etm@openssh.com
+          - hmac-sha2-512
+          - hmac-sha2-512-etm@openssh.com
+        kex:
+          - curve25519-sha256
+          - curve25519-sha256@libssh.org
+          - diffie-hellman-group-exchange-sha256
+          - diffie-hellman-group14-sha256
+          - diffie-hellman-group15-sha512
+          - diffie-hellman-group16-sha512
+          - diffie-hellman-group17-sha512
+          - diffie-hellman-group18-sha512
+          - ecdh-sha2-nistp256
+          - ecdh-sha2-nistp384
+          - ecdh-sha2-nistp521
+        cipher:
+          - aes128-ctr
+          - aes128-gcm
+          - aes128-gcm@openssh.com
+          - aes192-ctr
+          - aes256-ctr
+          - aes256-gcm
+          - aes256-gcm@openssh.com
+        serverHostKey:
+          - ecdsa-sha2-nistp256
+          - ecdsa-sha2-nistp384
+          - ecdsa-sha2-nistp521
+          - rsa-sha2-256
+          - rsa-sha2-512
+          - ssh-ed25519
+          - ssh-rsa
+      input: {}
+      auth: password
+      privateKeys: []
+      forwardedPorts: []
+      scripts: []
+    weight: -1
+    id: ssh:custom:GIA-E-LA:0844acb4-6791-48b7-86e9-fbda075bd437
+    group: 3bc6f780-70f2-498b-9329-d60a6c9150f0
+  - type: ssh
+    name: GIA-E-JP
+    icon: fas fa-desktop
+    options:
+      host: 23.106.140.47
+      port: 28139
+      algorithms:
+        hmac:
+          - hmac-sha1
+          - hmac-sha1-etm@openssh.com
+          - hmac-sha2-256
+          - hmac-sha2-256-etm@openssh.com
+          - hmac-sha2-512
+          - hmac-sha2-512-etm@openssh.com
+        kex:
+          - curve25519-sha256
+          - curve25519-sha256@libssh.org
+          - diffie-hellman-group-exchange-sha256
+          - diffie-hellman-group14-sha256
+          - diffie-hellman-group15-sha512
+          - diffie-hellman-group16-sha512
+          - diffie-hellman-group17-sha512
+          - diffie-hellman-group18-sha512
+          - ecdh-sha2-nistp256
+          - ecdh-sha2-nistp384
+          - ecdh-sha2-nistp521
+        cipher:
+          - aes128-ctr
+          - aes128-gcm
+          - aes128-gcm@openssh.com
+          - aes192-ctr
+          - aes256-ctr
+          - aes256-gcm
+          - aes256-gcm@openssh.com
+        serverHostKey:
+          - ecdsa-sha2-nistp256
+          - ecdsa-sha2-nistp384
+          - ecdsa-sha2-nistp521
+          - rsa-sha2-256
+          - rsa-sha2-512
+          - ssh-ed25519
+          - ssh-rsa
+      input: {}
+      auth: password
+      privateKeys: []
+      forwardedPorts: []
+      scripts: []
+    weight: -1
+    group: 3bc6f780-70f2-498b-9329-d60a6c9150f0
+    id: ssh:custom:GIA-E-JP:cfcb98ae-ab84-4299-a1e9-8ab8b574e2af
+  - type: ssh
+    icon: fas fa-desktop
+    options:
+      host: 20.18.13.13
+      user: ems-vm02-admin
+      algorithms:
+        hmac:
+          - hmac-sha1
+          - hmac-sha1-etm@openssh.com
+          - hmac-sha2-256
+          - hmac-sha2-256-etm@openssh.com
+          - hmac-sha2-512
+          - hmac-sha2-512-etm@openssh.com
+        kex:
+          - curve25519-sha256
+          - curve25519-sha256@libssh.org
+          - diffie-hellman-group-exchange-sha256
+          - diffie-hellman-group14-sha256
+          - diffie-hellman-group15-sha512
+          - diffie-hellman-group16-sha512
+          - diffie-hellman-group17-sha512
+          - diffie-hellman-group18-sha512
+          - ecdh-sha2-nistp256
+          - ecdh-sha2-nistp384
+          - ecdh-sha2-nistp521
+        cipher:
+          - aes128-ctr
+          - aes128-gcm
+          - aes128-gcm@openssh.com
+          - aes192-ctr
+          - aes256-ctr
+          - aes256-gcm
+          - aes256-gcm@openssh.com
+        serverHostKey:
+          - ecdsa-sha2-nistp256
+          - ecdsa-sha2-nistp384
+          - ecdsa-sha2-nistp521
+          - rsa-sha2-256
+          - rsa-sha2-512
+          - ssh-ed25519
+          - ssh-rsa
+      input: {}
+      auth: password
+      privateKeys: []
+      forwardedPorts: []
+      scripts: []
+    weight: -1
+    name: VM02-CD
+    group: 7aedf9af-d2c1-4010-b1cf-52dbca2ef427
+    id: ssh:custom:VM02-CD:6f94d9c8-b511-4ef9-8ffb-c92f6b8bbc91
 groups:
   - id: 0d83f172-508c-4d86-96de-db43125265c3
     name: MOXA
+  - id: 3bc6f780-70f2-498b-9329-d60a6c9150f0
+    name: VM-Personal
+  - id: 7aedf9af-d2c1-4010-b1cf-52dbca2ef427
+    name: VM-Work
 configSync:
   parts: {}
 hotkeys:
@@ -340,6 +494,7 @@ terminal:
       - '#8959a8'
       - '#3e999f'
       - '#ffffff'
+  autoOpen: false
 ssh:
   knownHosts:
     - host: 192.168.1.17
@@ -350,6 +505,18 @@ ssh:
       port: 22
       type: ecdsa-sha2-nistp256
       digest: ZnyIujhctm1sLwkKcRgWoruG9uurryUqyfu7RU7lK0g=
+    - host: 80.251.208.251
+      port: 28104
+      type: ecdsa-sha2-nistp256
+      digest: 9q95HYKcUz01+anjjLjbayeTd6nJUmS9vPGSHF0oSYw=
+    - host: 23.106.140.47
+      port: 28139
+      type: ecdsa-sha2-nistp256
+      digest: J441wlhGkSTxzTW/u8co+Z7pUHG+R4W6thzoF4ZE2kA=
+    - host: 20.18.13.13
+      port: 22
+      type: ecdsa-sha2-nistp256
+      digest: faSRNgON8cDw24uQ3KXfUxg3C2QgBdoyKDvNkWa8WSI=
 clickableLinks: {}
 accessibility: {}
 appearance:
@@ -368,10 +535,14 @@ pluginBlacklist: []
 profileDefaults:
   ssh:
     disableDynamicTitle: true
-profileBlacklist: []
+profileBlacklist:
+  - local:clink
+  - local:cmd
+  - local:powershell
+  - local:default
 vault:
   version: 1
   contents: >-
-    y7KrgoBHmFdlIe0a7B/Emm52tBLtT0orOy7Kvov4fwQAcsEjqX0OFhZpQaXcDYFak11mtmRTR+lt0NZS/4hceqiLE8zwjjeQbhTguwCDWndv+eGfe23g+GUwks1o7dGhJ2cXwzJB/o5buJ5/wQTjHg==
-  keySalt: a8d85df981e64846
-  iv: 07a64171db5d8e16476d3bd4504cf85b
+    HH5sf1d55lrPjx7Z6Rn9bK2d0+z9mI2NzGWV0Iz6CAcnunqOgZkL3gj0mnTHeKJbE9AgYtJugVpVtregjgx0R3HrylZDdYB1PJrzwPLnJD7xQd3ZH8rmO2JoXBwxIjD8cToM6Exx7qPwD+BRGrrJAKUqDNBu7EAlEJrrOBhGwaMHiwjmJ37eYV85a8uscxpMnVtiayxM96k5q0w65xNgHshphpenOBoyHqkJyVTolh1wZgbDatCYzjnUN8VR7qsKS3pHrhwCTg1Tdjtv4LcGckTcJ1hDJpjbvv33qekFvhazt7DFkyPoRLuTnqXDUlzeOD7oa3O4B1c28uF3W3Pzchpn2zcg2aHLwWRsFI5vbqJBlB854LPhEvP/dwCyRNeKmqT5TdDCvE/SAuEad5XWBbGtXjbuL+lA+ZYnpYVv3I6029AUpaxflagTJC19e334m8JPzmbCiZ9x30k/ECOqsRYHqsnlIw5hG9uRfjfLLA6Y60Vwpr0nPVZHNOUW0HOXJCAc4ANR9Tcs77EzbDdS8FBszDA9mAA1/FhJYUCSPXrW+Nwm1Dfs/pJbleSn7DuaFes3vmRhnaRwQ7qdkwrFgJukDzz95E6tiqF65ZKTNG9PyPSn30874uyT1DIb5/+pLc+PJsDh8qHwhZmmXbIiCBeAf3ZcOAhbNv6OsPJLqd9hEQ6G7C8Vh7HA/EFDNXkN
+  keySalt: 1bcc9f5b8f250e30
+  iv: 9506c2c81cb78470aa0dfdc5a351660c
