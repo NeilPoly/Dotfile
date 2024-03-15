@@ -73,8 +73,17 @@ nmap <a-j> <action>(MoveStatementDown)
 nmap <a-k> <action>(MoveStatementUp)
 " Go to define
 nmap gd <action>(GotoDeclaration)
-" Move tab
-nmap <leader>wl <action>(MoveEditorToOppositeTabGroup)
+
+" 选择模式选到行首
+vmap H ^
+" 选择模式选到行尾
+vmap L $
+
+" 选择模式扩大选择范围
+vmap v <Action>(EditorSelectWord)
+" 选择模式缩小选择范围
+vmap V <Action>(EditorUnSelectWord)
+
 
 " ======================== "
 " ==== Leader keymaps ==== "
@@ -123,8 +132,12 @@ nmap <leader>w- <action>(MoveTabDown)
 " Split window undo "
 let g:WhichKeyDesc_Windows_UnSplitWindow = "<leader>wu UnSplitWindow"
 nmap <leader>wu <action>(Unsplit)
-
+" Move tab
+let g:WhichKeyDesc_Windows_MoveEditorToOppositeTabGroup = "<leader>wl MoveEditorToOppositeTabGroup"
+nmap <leader>wl <action>(MoveEditorToOppositeTabGroup)
 
 " Easy-Motion
 set easymotion
-nmap s <Plug>(easymotion-bd-f2)
+" nmap s <Plug>(easymotion-bd-f2)
+nmap s <Plug>(easymotion-s2)
+let g:EasyMotion_override_acejump = 0
