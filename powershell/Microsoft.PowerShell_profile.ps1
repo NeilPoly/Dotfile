@@ -1,10 +1,14 @@
-# Wake up oh-my-posh
-oh-my-posh init pwsh --config 'C:\Users\guxq2\AppData\Local\Programs\oh-my-posh\themes\aliens.omp.json' | Invoke-Expression
+# Wake up oh-my-posh prompt (no use)
+# oh-my-posh init pwsh --config 'C:\Users\guxq2\AppData\Local\Programs\oh-my-posh\themes\powerlevel10k_lean.omp.json' | Invoke-Expression
+
+# Wake up starship prompt
+Invoke-Expression (&starship init powershell)
 
 # Use RSReadLine
 # Import-Module PSReadLine
 Set-PSReadLineOption -EditMode Emacs
 Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -PredictionViewStyle ListView
 
 # use ripgrep
 Set-Alias grep rg
@@ -18,7 +22,6 @@ function which ($command) {
 
 # set directory background color(since 7.3 version)
 $PSStyle.FileInfo.Directory = "`e[38;2;255;255;255m"
-
 
 function set_proxy_variable {
   $proxy = 'http://127.0.0.1:10809'
@@ -48,3 +51,8 @@ function unset_proxy_variable {
 
 Set-Alias proxy set_proxy_variable
 Set-Alias unproxy unset_proxy_variable
+
+Set-Alias open explorer.exe
+
+proxy
+
